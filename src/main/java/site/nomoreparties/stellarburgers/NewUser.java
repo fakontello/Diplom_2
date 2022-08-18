@@ -40,8 +40,7 @@ public class NewUser {
     }
 
     public static NewUser getRandomUser() {
-        String email = RandomStringUtils.randomAlphabetic(5) + "@" + RandomStringUtils.randomAlphabetic(5)
-                + ".ru";
+        String email = RandomStringUtils.randomAlphabetic(6) + "@yandex.ru";
         String password = RandomStringUtils.randomAlphabetic(10);
         String name = RandomStringUtils.randomAlphabetic(10);
         return new NewUser(email, password, name);

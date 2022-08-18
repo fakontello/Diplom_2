@@ -22,7 +22,7 @@ public class CreatingUserTest {
 
     // Создание нового пользователя
     @Test
-    public void creatingNewCourier() {
+    public void creatingNewUser() {
         newUser = getRandomUser();
         Response responseCreate = client.createUser(newUser);
         assertEquals(SC_OK, responseCreate.statusCode());
@@ -46,7 +46,7 @@ public class CreatingUserTest {
 
     // Создание пользователя с одним не заполненным обязательным полем
     @Test
-    public void attemptToCreateCourierWithoutImportantFields() {
+    public void attemptToCreateUserWithoutImportantFields() {
 
         final NewUser newUser = new NewUser(RandomStringUtils.randomAlphabetic(5) + "@" +
                 RandomStringUtils.randomAlphabetic(5) + ".ru",
