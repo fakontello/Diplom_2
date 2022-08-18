@@ -8,6 +8,8 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import java.util.List;
 
+import static io.restassured.RestAssured.given;
+
 public class BurgersApiClient {
     public static final String BASE_URL = "https://stellarburgers.nomoreparties.site/api/";
 
@@ -36,14 +38,34 @@ public class BurgersApiClient {
                 .post("/auth/login");
     }
 
-    public Response deleteUser() {
-        return RestAssured.with()
+    public void deleteUser(String accessToken) {
+        given()
                 .filters(List.of(requestFilter, responseFilter))
                 .baseUri(BASE_URL)
-                .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
+                .headers(
+                        "Authorization",
+                        accessToken,
+                        "Content-Type",
+                        ContentType.JSON,
+                        "Accept",
+                        ContentType.JSON)
                 .when()
                 .delete("/auth/user");
+    }
+
+    public void getUserInfo(String accessToken) {
+        given()
+                .filters(List.of(requestFilter, responseFilter))
+                .baseUri(BASE_URL)
+                .headers(
+                        "Authorization",
+                        accessToken,
+                        "Content-Type",
+                        ContentType.JSON,
+                        "Accept",
+                        ContentType.JSON)
+                .when()
+                .get("/auth/user");
     }
 
 }

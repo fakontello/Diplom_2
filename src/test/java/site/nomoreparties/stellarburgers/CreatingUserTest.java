@@ -1,8 +1,8 @@
 package site.nomoreparties.stellarburgers;
 
 import io.restassured.response.Response;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.hamcrest.MatcherAssert;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,12 +18,22 @@ public class CreatingUserTest {
     @Before
     public void setUp() {
         client = new BurgersApiClient();
+        newUser = getRandomUser();
+    }
+
+    @After
+    public void deleteUser() {
+        ExistingUser existingUser = new ExistingUser(newUser.getEmail(), newUser.getPassword());
+        Response responseLogin = client.loginUser(existingUser);
+        String accessToken = responseLogin.body().jsonPath().getString("accessToken");
+        assertEquals(SC_OK, responseLogin.statusCode());
+        client.getUserInfo(accessToken);
+        client.deleteUser(accessToken);
     }
 
     // Создание нового пользователя
     @Test
     public void creatingNewUser() {
-        newUser = getRandomUser();
         Response responseCreate = client.createUser(newUser);
         assertEquals(SC_OK, responseCreate.statusCode());
         String responseSuccess = responseCreate.body().jsonPath().getString("success");
@@ -33,7 +43,6 @@ public class CreatingUserTest {
     // Создание пользователя, который уже зарегистрирован
     @Test
     public void createExistingUser() {
-        newUser = getRandomUser();
         Response responseCreate = client.createUser(newUser);
         assertEquals(SC_OK, responseCreate.statusCode());
 
@@ -44,19 +53,4 @@ public class CreatingUserTest {
         assertEquals(responseMessage, "User already exists");
     }
 
-    // Создание пользователя с одним не заполненным обязательным полем
-    @Test
-    public void attemptToCreateUserWithoutImportantFields() {
-
-        final NewUser newUser = new NewUser(RandomStringUtils.randomAlphabetic(5) + "@" +
-                RandomStringUtils.randomAlphabetic(5) + ".ru",
-                null,
-                RandomStringUtils.randomAlphabetic(10));
-
-        Response responseCreate = client.createUser(newUser);
-        assertEquals(SC_FORBIDDEN, responseCreate.statusCode());
-
-        String responseMessage = responseCreate.body().jsonPath().getString("message");
-        assertEquals(responseMessage, "Email, password and name are required fields");
-    }
 }
