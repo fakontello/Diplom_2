@@ -38,8 +38,8 @@ public class BurgersApiClient {
                 .post("/auth/login");
     }
 
-    public void deleteUser(String accessToken) {
-        given()
+    public Response deleteUser(String accessToken) {
+        return RestAssured.with()
                 .filters(List.of(requestFilter, responseFilter))
                 .baseUri(BASE_URL)
                 .headers(
@@ -66,6 +66,22 @@ public class BurgersApiClient {
                         ContentType.JSON)
                 .when()
                 .get("/auth/user");
+    }
+
+    public Response updateUserInfo(String accessToken, ExistingUser existingUser) {
+        return RestAssured.with()
+                .filters(List.of(requestFilter, responseFilter))
+                .baseUri(BASE_URL)
+                .headers(
+                        "Authorization",
+                        accessToken,
+                        "Content-Type",
+                        ContentType.JSON,
+                        "Accept",
+                        ContentType.JSON)
+                .body(existingUser)
+                .when()
+                .patch("/auth/user");
     }
 
 }

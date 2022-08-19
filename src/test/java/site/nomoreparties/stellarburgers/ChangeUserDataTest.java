@@ -2,7 +2,6 @@ package site.nomoreparties.stellarburgers;
 
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.hamcrest.MatcherAssert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +10,8 @@ import static org.apache.http.HttpStatus.*;
 import static org.junit.Assert.assertEquals;
 import static site.nomoreparties.stellarburgers.NewUser.getRandomUser;
 
-public class LoginUserTest {
+public class ChangeUserDataTest {
+
     BurgersApiClient client;
     NewUser newUser;
 
@@ -33,29 +33,17 @@ public class LoginUserTest {
         assertEquals(responseMessage, "User successfully removed");
     }
 
-    // Логин нового пользователя
+    // Изменение имени пользователя и имейла с авторизацией
     @Test
-    public void LoginNewUser() {
+    public void changeUserNameAndEmailAuth() {
         Response responseCreate = client.createUser(newUser);
         assertEquals(SC_OK, responseCreate.statusCode());
-        ExistingUser existingUser = new ExistingUser(newUser.getEmail(), newUser.getPassword(), newUser.getName());
-        Response responseLogin = client.loginUser(existingUser);
-        assertEquals(SC_OK, responseLogin.statusCode());
-        String responseSuccess = responseCreate.body().jsonPath().getString("success");
-        MatcherAssert.assertThat(responseSuccess, true);
-
-    }
-
-    // Логин нового пользователя c неверным паролем
-    @Test
-    public void LoginNewUserWithWrongPassword() {
-        Response responseCreate = client.createUser(newUser);
+        String accessToken = responseCreate.body().jsonPath().getString("accessToken");
         assertEquals(SC_OK, responseCreate.statusCode());
-        ExistingUser existingUser = new ExistingUser(newUser.getEmail(), RandomStringUtils.randomAlphabetic(10),
-                newUser.getName());
-        Response responseLogin = client.loginUser(existingUser);
-        assertEquals(SC_UNAUTHORIZED, responseLogin.statusCode());
-        String responseMessage = responseLogin.body().jsonPath().getString("message");
-        assertEquals(responseMessage, "email or password are incorrect");
+
+        ExistingUser newUserNameAndPass = new ExistingUser(newUser.setEmail(RandomStringUtils.randomAlphabetic(10) +
+                "@yandex.ru"), newUser.getPassword(), newUser.setName(RandomStringUtils.randomAlphabetic(10)));
+        client.updateUserInfo(accessToken, newUserNameAndPass);
     }
+
 }

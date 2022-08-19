@@ -23,12 +23,14 @@ public class CreatingUserTest {
 
     @After
     public void deleteUser() {
-        ExistingUser existingUser = new ExistingUser(newUser.getEmail(), newUser.getPassword());
+        ExistingUser existingUser = new ExistingUser(newUser.getEmail(), newUser.getPassword(), newUser.getName());
         Response responseLogin = client.loginUser(existingUser);
         String accessToken = responseLogin.body().jsonPath().getString("accessToken");
         assertEquals(SC_OK, responseLogin.statusCode());
-        client.getUserInfo(accessToken);
-        client.deleteUser(accessToken);
+        Response responseDeleteUser = client.deleteUser(accessToken);
+        assertEquals(SC_ACCEPTED, responseDeleteUser.statusCode());
+        String responseMessage = responseDeleteUser.body().jsonPath().getString("message");
+        assertEquals(responseMessage, "User successfully removed");
     }
 
     // Создание нового пользователя
