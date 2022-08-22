@@ -39,10 +39,10 @@ public class ChangeUserDataTest {
         Response responseCreate = client.createUser(newUser);
         assertEquals(SC_OK, responseCreate.statusCode());
         String accessToken = responseCreate.body().jsonPath().getString("accessToken");
-        assertEquals(SC_OK, responseCreate.statusCode());
 
-        ExistingUser newUserNameAndPass = new ExistingUser(newUser.setEmail(RandomStringUtils.randomAlphabetic(10) +
-                "@yandex.ru"), newUser.getPassword(), newUser.setName(RandomStringUtils.randomAlphabetic(10)));
+        ExistingUser newUserNameAndPass = new ExistingUser(newUser.setEmail(RandomStringUtils.randomAlphabetic
+                (10) + "@yandex.ru"), newUser.getPassword(), newUser.setName(RandomStringUtils.randomAlphabetic
+                (10)));
         client.updateUserInfo(accessToken, newUserNameAndPass);
     }
 

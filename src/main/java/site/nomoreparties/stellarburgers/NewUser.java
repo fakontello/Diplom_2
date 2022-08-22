@@ -21,10 +21,6 @@ public class NewUser {
         return password;
     }
 
-    public String setPassword(String password) {
-        return this.password = password;
-    }
-
     public String getName() {
         return name;
     }

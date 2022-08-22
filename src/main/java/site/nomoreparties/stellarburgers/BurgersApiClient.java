@@ -8,8 +8,6 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import java.util.List;
 
-import static io.restassured.RestAssured.given;
-
 public class BurgersApiClient {
     public static final String BASE_URL = "https://stellarburgers.nomoreparties.site/api/";
 
@@ -53,21 +51,6 @@ public class BurgersApiClient {
                 .delete("/auth/user");
     }
 
-    public void getUserInfo(String accessToken) {
-        given()
-                .filters(List.of(requestFilter, responseFilter))
-                .baseUri(BASE_URL)
-                .headers(
-                        "Authorization",
-                        accessToken,
-                        "Content-Type",
-                        ContentType.JSON,
-                        "Accept",
-                        ContentType.JSON)
-                .when()
-                .get("/auth/user");
-    }
-
     public Response updateUserInfo(String accessToken, ExistingUser existingUser) {
         return RestAssured.with()
                 .filters(List.of(requestFilter, responseFilter))
@@ -82,6 +65,60 @@ public class BurgersApiClient {
                 .body(existingUser)
                 .when()
                 .patch("/auth/user");
+    }
+
+    public Response getIngredients() {
+        return RestAssured.with()
+                .filters(List.of(requestFilter, responseFilter))
+                .baseUri(BASE_URL)
+                .accept(ContentType.JSON)
+                .contentType(ContentType.JSON)
+                .when()
+                .get("/ingredients");
+    }
+
+    public Response newOrder(NewOrder newOrder) {
+        return RestAssured.with()
+                .filters(List.of(requestFilter, responseFilter))
+                .baseUri(BASE_URL)
+                .accept(ContentType.JSON)
+                .contentType(ContentType.JSON)
+                .body(newOrder)
+                .when()
+                .post("/orders");
+    }
+
+    public Response newAuthOrder(NewOrder newOrder, String accessToken) {
+        return RestAssured.with()
+                .filters(List.of(requestFilter, responseFilter))
+                .baseUri(BASE_URL)
+                .headers(
+                        "Authorization",
+                        accessToken,
+                        "Content-Type",
+                        ContentType.JSON,
+                        "Accept",
+                        ContentType.JSON)
+                .accept(ContentType.JSON)
+                .contentType(ContentType.JSON)
+                .body(newOrder)
+                .when()
+                .post("/orders");
+    }
+
+    public Response getUserOrders(String accessToken) {
+        return RestAssured.with()
+                .filters(List.of(requestFilter, responseFilter))
+                .baseUri(BASE_URL)
+                .headers(
+                        "Authorization",
+                        accessToken,
+                        "Content-Type",
+                        ContentType.JSON,
+                        "Accept",
+                        ContentType.JSON)
+                .when()
+                .get("/orders");
     }
 
 }

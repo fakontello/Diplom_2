@@ -9,7 +9,7 @@ import static org.apache.http.HttpStatus.*;
 import static org.junit.Assert.assertEquals;
 import static site.nomoreparties.stellarburgers.NewUser.getRandomUser;
 
-public class ChangeUserDataUnauthTest {
+public class ChangeUserDataNoAuthTest {
 
     BurgersApiClient client;
     NewUser newUser;
