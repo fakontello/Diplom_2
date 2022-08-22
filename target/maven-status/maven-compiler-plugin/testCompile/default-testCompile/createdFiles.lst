@@ -1,0 +1,7 @@
+site\nomoreparties\stellarburgers\CreateUserWithoutFieldTest.class
+site\nomoreparties\stellarburgers\ChangeUserDataNoAuthTest.class
+site\nomoreparties\stellarburgers\NewOrderWithAuthTests.class
+site\nomoreparties\stellarburgers\NewOrderWithoutAuthTests.class
+site\nomoreparties\stellarburgers\ChangeUserDataTest.class
+site\nomoreparties\stellarburgers\CreatingUserTest.class
+site\nomoreparties\stellarburgers\LoginUserTest.class
