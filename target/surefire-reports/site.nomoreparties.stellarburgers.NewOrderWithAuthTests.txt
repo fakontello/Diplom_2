@@ -1,4 +1,10 @@
 -------------------------------------------------------------------------------
 Test set: site.nomoreparties.stellarburgers.NewOrderWithAuthTests
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.059 s - in site.nomoreparties.stellarburgers.NewOrderWithAuthTests
+Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 6.051 s <<< FAILURE! - in site.nomoreparties.stellarburgers.NewOrderWithAuthTests
+getUserOrderWithoutAuth(site.nomoreparties.stellarburgers.NewOrderWithAuthTests)  Time elapsed: 1.35 s  <<< ERROR!
+io.restassured.path.json.exception.JsonPathException: Failed to parse the JSON document
+	at site.nomoreparties.stellarburgers.NewOrderWithAuthTests.getUserOrderWithoutAuth(NewOrderWithAuthTests.java:110)
+Caused by: groovy.json.JsonException: Lexing failed on line: 1, column: 1, while reading '<', no possible valid JSON value or punctuation could be recognized.
+	at site.nomoreparties.stellarburgers.NewOrderWithAuthTests.getUserOrderWithoutAuth(NewOrderWithAuthTests.java:110)
+

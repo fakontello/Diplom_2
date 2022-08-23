@@ -1,7 +1,7 @@
-D:\Diplom_2\src\test\java\site\nomoreparties\stellarburgers\NewOrderWithoutAuthTests.java
-D:\Diplom_2\src\test\java\site\nomoreparties\stellarburgers\NewOrderWithAuthTests.java
-D:\Diplom_2\src\test\java\site\nomoreparties\stellarburgers\ChangeUserDataTest.java
-D:\Diplom_2\src\test\java\site\nomoreparties\stellarburgers\CreateUserWithoutFieldTest.java
-D:\Diplom_2\src\test\java\site\nomoreparties\stellarburgers\CreatingUserTest.java
-D:\Diplom_2\src\test\java\site\nomoreparties\stellarburgers\LoginUserTest.java
-D:\Diplom_2\src\test\java\site\nomoreparties\stellarburgers\ChangeUserDataNoAuthTest.java
+/Users/fakontello/Diplom_2/src/test/java/site/nomoreparties/stellarburgers/NewOrderWithoutAuthTests.java
+/Users/fakontello/Diplom_2/src/test/java/site/nomoreparties/stellarburgers/LoginUserTest.java
+/Users/fakontello/Diplom_2/src/test/java/site/nomoreparties/stellarburgers/CreatingUserTest.java
+/Users/fakontello/Diplom_2/src/test/java/site/nomoreparties/stellarburgers/ChangeUserDataNoAuthTest.java
+/Users/fakontello/Diplom_2/src/test/java/site/nomoreparties/stellarburgers/ChangeUserDataTest.java
+/Users/fakontello/Diplom_2/src/test/java/site/nomoreparties/stellarburgers/NewOrderWithAuthTests.java
+/Users/fakontello/Diplom_2/src/test/java/site/nomoreparties/stellarburgers/CreateUserWithoutFieldTest.java

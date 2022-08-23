@@ -1,71 +1,239 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="site.nomoreparties.stellarburgers.NewOrderWithAuthTests" time="5.059" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="site.nomoreparties.stellarburgers.NewOrderWithAuthTests" time="6.051" tests="4" errors="1" skipped="0" failures="0">
   <properties>
-    <property name="sun.desktop" value="windows"/>
-    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="gopherProxySet" value="false"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
     <property name="java.specification.version" value="11"/>
-    <property name="sun.cpu.isalist" value="amd64"/>
-    <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="D:\Diplom_2\target\test-classes;D:\Diplom_2\target\classes;C:\Users\Hardee\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\Hardee\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Hardee\.m2\repository\org\mockito\mockito-core\4.6.1\mockito-core-4.6.1.jar;C:\Users\Hardee\.m2\repository\net\bytebuddy\byte-buddy\1.12.10\byte-buddy-1.12.10.jar;C:\Users\Hardee\.m2\repository\net\bytebuddy\byte-buddy-agent\1.12.10\byte-buddy-agent-1.12.10.jar;C:\Users\Hardee\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;C:\Users\Hardee\.m2\repository\com\google\code\gson\gson\2.9.0\gson-2.9.0.jar;C:\Users\Hardee\.m2\repository\io\rest-assured\rest-assured\5.1.1\rest-assured-5.1.1.jar;C:\Users\Hardee\.m2\repository\org\apache\groovy\groovy\4.0.1\groovy-4.0.1.jar;C:\Users\Hardee\.m2\repository\org\apache\groovy\groovy-xml\4.0.1\groovy-xml-4.0.1.jar;C:\Users\Hardee\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\Hardee\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\Hardee\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Hardee\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\Hardee\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\Hardee\.m2\repository\org\hamcrest\hamcrest\2.1\hamcrest-2.1.jar;C:\Users\Hardee\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\Hardee\.m2\repository\io\rest-assured\json-path\5.1.1\json-path-5.1.1.jar;C:\Users\Hardee\.m2\repository\org\apache\groovy\groovy-json\4.0.1\groovy-json-4.0.1.jar;C:\Users\Hardee\.m2\repository\io\rest-assured\rest-assured-common\5.1.1\rest-assured-common-5.1.1.jar;C:\Users\Hardee\.m2\repository\io\rest-assured\xml-path\5.1.1\xml-path-5.1.1.jar;C:\Users\Hardee\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;C:\Users\Hardee\.m2\repository\io\qameta\allure\allure-junit4\2.18.1\allure-junit4-2.18.1.jar;C:\Users\Hardee\.m2\repository\io\qameta\allure\allure-java-commons\2.18.1\allure-java-commons-2.18.1.jar;C:\Users\Hardee\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\Hardee\.m2\repository\io\qameta\allure\allure-model\2.18.1\allure-model-2.18.1.jar;C:\Users\Hardee\.m2\repository\io\qameta\allure\allure-rest-assured\2.18.1\allure-rest-assured-2.18.1.jar;C:\Users\Hardee\.m2\repository\io\qameta\allure\allure-attachments\2.18.1\allure-attachments-2.18.1.jar;C:\Users\Hardee\.m2\repository\org\freemarker\freemarker\2.3.31\freemarker-2.3.31.jar;"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/fakontello/Diplom_2/target/test-classes:/Users/fakontello/Diplom_2/target/classes:/Users/fakontello/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/fakontello/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/fakontello/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/Users/fakontello/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/Users/fakontello/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/Users/fakontello/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/Users/fakontello/.m2/repository/com/google/code/gson/gson/2.9.0/gson-2.9.0.jar:/Users/fakontello/.m2/repository/io/rest-assured/rest-assured/5.1.1/rest-assured-5.1.1.jar:/Users/fakontello/.m2/repository/org/apache/groovy/groovy/4.0.1/groovy-4.0.1.jar:/Users/fakontello/.m2/repository/org/apache/groovy/groovy-xml/4.0.1/groovy-xml-4.0.1.jar:/Users/fakontello/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/fakontello/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/fakontello/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/fakontello/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/fakontello/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/fakontello/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/Users/fakontello/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/fakontello/.m2/repository/io/rest-assured/json-path/5.1.1/json-path-5.1.1.jar:/Users/fakontello/.m2/repository/org/apache/groovy/groovy-json/4.0.1/groovy-json-4.0.1.jar:/Users/fakontello/.m2/repository/io/rest-assured/rest-assured-common/5.1.1/rest-assured-common-5.1.1.jar:/Users/fakontello/.m2/repository/io/rest-assured/xml-path/5.1.1/xml-path-5.1.1.jar:/Users/fakontello/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar:/Users/fakontello/.m2/repository/io/qameta/allure/allure-junit4/2.18.1/allure-junit4-2.18.1.jar:/Users/fakontello/.m2/repository/io/qameta/allure/allure-java-commons/2.18.1/allure-java-commons-2.18.1.jar:/Users/fakontello/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar:/Users/fakontello/.m2/repository/io/qameta/allure/allure-model/2.18.1/allure-model-2.18.1.jar:/Users/fakontello/.m2/repository/io/qameta/allure/allure-rest-assured/2.18.1/allure-rest-assured-2.18.1.jar:/Users/fakontello/.m2/repository/io/qameta/allure/allure-attachments/2.18.1/allure-attachments-2.18.1.jar:/Users/fakontello/.m2/repository/org/freemarker/freemarker/2.3.31/freemarker-2.3.31.jar:"/>
     <property name="java.vm.vendor" value="Amazon.com Inc."/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="user.variant" value=""/>
     <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
-    <property name="user.timezone" value="Europe/Moscow"/>
-    <property name="user.country.format" value="RU"/>
+    <property name="user.timezone" value=""/>
     <property name="java.vm.specification.version" value="11"/>
-    <property name="os.name" value="Windows 11"/>
+    <property name="os.name" value="Mac OS X"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="user.country" value="US"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.15_9\bin"/>
-    <property name="sun.java.command" value="C:\Users\Hardee\AppData\Local\Temp\surefire8723433183052997550\surefirebooter5964741470548509177.jar C:\Users\Hardee\AppData\Local\Temp\surefire8723433183052997550 2022-08-22T17-15-49_040-jvmRun1 surefire1889415715410886976tmp surefire_017700943222150927139tmp"/>
+    <property name="user.country" value="RU"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/fakontello/Diplom_2/target/surefire/surefirebooter15231190670980414961.jar /Users/fakontello/Diplom_2/target/surefire 2022-08-23T16-17-40_652-jvmRun1 surefire9176694866997633884tmp surefire_02005731608118353269tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="D:\Diplom_2\target\test-classes;D:\Diplom_2\target\classes;C:\Users\Hardee\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\Hardee\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Hardee\.m2\repository\org\mockito\mockito-core\4.6.1\mockito-core-4.6.1.jar;C:\Users\Hardee\.m2\repository\net\bytebuddy\byte-buddy\1.12.10\byte-buddy-1.12.10.jar;C:\Users\Hardee\.m2\repository\net\bytebuddy\byte-buddy-agent\1.12.10\byte-buddy-agent-1.12.10.jar;C:\Users\Hardee\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;C:\Users\Hardee\.m2\repository\com\google\code\gson\gson\2.9.0\gson-2.9.0.jar;C:\Users\Hardee\.m2\repository\io\rest-assured\rest-assured\5.1.1\rest-assured-5.1.1.jar;C:\Users\Hardee\.m2\repository\org\apache\groovy\groovy\4.0.1\groovy-4.0.1.jar;C:\Users\Hardee\.m2\repository\org\apache\groovy\groovy-xml\4.0.1\groovy-xml-4.0.1.jar;C:\Users\Hardee\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\Hardee\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\Hardee\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Hardee\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\Hardee\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\Hardee\.m2\repository\org\hamcrest\hamcrest\2.1\hamcrest-2.1.jar;C:\Users\Hardee\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\Hardee\.m2\repository\io\rest-assured\json-path\5.1.1\json-path-5.1.1.jar;C:\Users\Hardee\.m2\repository\org\apache\groovy\groovy-json\4.0.1\groovy-json-4.0.1.jar;C:\Users\Hardee\.m2\repository\io\rest-assured\rest-assured-common\5.1.1\rest-assured-common-5.1.1.jar;C:\Users\Hardee\.m2\repository\io\rest-assured\xml-path\5.1.1\xml-path-5.1.1.jar;C:\Users\Hardee\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;C:\Users\Hardee\.m2\repository\io\qameta\allure\allure-junit4\2.18.1\allure-junit4-2.18.1.jar;C:\Users\Hardee\.m2\repository\io\qameta\allure\allure-java-commons\2.18.1\allure-java-commons-2.18.1.jar;C:\Users\Hardee\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\Hardee\.m2\repository\io\qameta\allure\allure-model\2.18.1\allure-model-2.18.1.jar;C:\Users\Hardee\.m2\repository\io\qameta\allure\allure-rest-assured\2.18.1\allure-rest-assured-2.18.1.jar;C:\Users\Hardee\.m2\repository\io\qameta\allure\allure-attachments\2.18.1\allure-attachments-2.18.1.jar;C:\Users\Hardee\.m2\repository\org\freemarker\freemarker\2.3.31\freemarker-2.3.31.jar;"/>
+    <property name="surefire.test.class.path" value="/Users/fakontello/Diplom_2/target/test-classes:/Users/fakontello/Diplom_2/target/classes:/Users/fakontello/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/fakontello/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/fakontello/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/Users/fakontello/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/Users/fakontello/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/Users/fakontello/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/Users/fakontello/.m2/repository/com/google/code/gson/gson/2.9.0/gson-2.9.0.jar:/Users/fakontello/.m2/repository/io/rest-assured/rest-assured/5.1.1/rest-assured-5.1.1.jar:/Users/fakontello/.m2/repository/org/apache/groovy/groovy/4.0.1/groovy-4.0.1.jar:/Users/fakontello/.m2/repository/org/apache/groovy/groovy-xml/4.0.1/groovy-xml-4.0.1.jar:/Users/fakontello/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/fakontello/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/fakontello/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/fakontello/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/fakontello/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/fakontello/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/Users/fakontello/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/fakontello/.m2/repository/io/rest-assured/json-path/5.1.1/json-path-5.1.1.jar:/Users/fakontello/.m2/repository/org/apache/groovy/groovy-json/4.0.1/groovy-json-4.0.1.jar:/Users/fakontello/.m2/repository/io/rest-assured/rest-assured-common/5.1.1/rest-assured-common-5.1.1.jar:/Users/fakontello/.m2/repository/io/rest-assured/xml-path/5.1.1/xml-path-5.1.1.jar:/Users/fakontello/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar:/Users/fakontello/.m2/repository/io/qameta/allure/allure-junit4/2.18.1/allure-junit4-2.18.1.jar:/Users/fakontello/.m2/repository/io/qameta/allure/allure-java-commons/2.18.1/allure-java-commons-2.18.1.jar:/Users/fakontello/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar:/Users/fakontello/.m2/repository/io/qameta/allure/allure-model/2.18.1/allure-model-2.18.1.jar:/Users/fakontello/.m2/repository/io/qameta/allure/allure-rest-assured/2.18.1/allure-rest-assured-2.18.1.jar:/Users/fakontello/.m2/repository/io/qameta/allure/allure-attachments/2.18.1/allure-attachments-2.18.1.jar:/Users/fakontello/.m2/repository/org/freemarker/freemarker/2.3.31/freemarker-2.3.31.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="allure.results.directory" value="D:\Diplom_2\target/allure-results"/>
-    <property name="user.home" value="C:\Users\Hardee"/>
+    <property name="allure.results.directory" value="/Users/fakontello/Diplom_2/target/allure-results"/>
+    <property name="user.home" value="/Users/fakontello"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="java.version.date" value="2022-04-19"/>
-    <property name="java.home" value="C:\Program Files\Amazon Corretto\jdk11.0.15_9"/>
-    <property name="file.separator" value="\"/>
-    <property name="basedir" value="D:\Diplom_2"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/fakontello/Diplom_2"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\Hardee\AppData\Local\Temp\surefire8723433183052997550\surefirebooter5964741470548509177.jar"/>
-    <property name="user.script" value=""/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/Users/fakontello/Diplom_2/target/surefire/surefirebooter15231190670980414961.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="11.0.15+9-LTS"/>
-    <property name="user.name" value="Hardee"/>
-    <property name="path.separator" value=";"/>
-    <property name="os.version" value="10.0"/>
+    <property name="user.name" value="fakontello"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="12.5.1"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
-    <property name="file.encoding" value="Cp1252"/>
+    <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
     <property name="java.vendor.version" value="Corretto-11.0.15.9.1"/>
-    <property name="localRepository" value="C:\Users\Hardee\.m2\repository"/>
+    <property name="localRepository" value="/Users/fakontello/.m2/repository"/>
     <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-11/issues/"/>
-    <property name="java.io.tmpdir" value="C:\Users\Hardee\AppData\Local\Temp\"/>
-    <property name="idea.version" value="2021.3.3"/>
+    <property name="java.io.tmpdir" value="/var/folders/df/vz2sfdx52wv_hls60sxzzp3m0000gn/T/"/>
+    <property name="idea.version" value="2021.3.2"/>
     <property name="java.version" value="11.0.15"/>
-    <property name="user.dir" value="D:\Diplom_2"/>
-    <property name="os.arch" value="amd64"/>
+    <property name="user.dir" value="/Users/fakontello/Diplom_2"/>
+    <property name="os.arch" value="x86_64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
-    <property name="user.language.format" value="ru"/>
-    <property name="sun.os.patch.level" value=""/>
-    <property name="java.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.15_9\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files\Amazon Corretto\jdk11.0.15_9\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;c:\program files (x86)\razer\chromabroadcast\bin;c:\program files\razer\chromabroadcast\bin;c:\windows\system32;c:\windows;c:\windows\system32\wbem;c:\windows\system32\windowspowershell\v1.0\;c:\windows\system32\openssh\;c:\program files\java\jdk-11.0.14.1+1\bin;c:\program files\git\cmd;c:\windows\system32\config\systemprofile\appdata\local\microsoft\windowsapps;c:\program files\nvidia corporation\nvidia nvdlisr;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Amazon Corretto\jdk11.0.15_9\bin;C:\apache-maven-3.8.5\bin;C:\WebDriver\bin;C:\Program Files\dotnet\;C:\allure-2.18.1\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Git\cmd;C:\Program Files\Git\usr\bin;C:\Users\Hardee\AppData\Local\Microsoft\WindowsApps;C:\Users\Hardee\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.3.2\bin;;C:\Users\Hardee\AppData\Local\GitHubDesktop\bin;C:\Program Files\Amazon Corretto\jdk11.0.15_9\bin;C:\WebDriver\bin;C:\Users\Hardee\.dotnet\tools;C:\allure-2.18.1\bin;C:\Program Files\Git\usr\bin;;."/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/Users/fakontello/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="java.vm.info" value="mixed mode"/>
     <property name="java.vendor" value="Amazon.com Inc."/>
     <property name="java.vm.version" value="11.0.15+9-LTS"/>
-    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="java.class.version" value="55.0"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="getUserOrderWithoutAuth" classname="site.nomoreparties.stellarburgers.NewOrderWithAuthTests" time="1.495"/>
-  <testcase name="newOrderWithoutIngredients" classname="site.nomoreparties.stellarburgers.NewOrderWithAuthTests" time="0.983"/>
-  <testcase name="wrongHashIngredients" classname="site.nomoreparties.stellarburgers.NewOrderWithAuthTests" time="1.1"/>
-  <testcase name="newOrderTest" classname="site.nomoreparties.stellarburgers.NewOrderWithAuthTests" time="1.479"/>
+  <testcase name="getUserOrderWithoutAuth" classname="site.nomoreparties.stellarburgers.NewOrderWithAuthTests" time="1.35">
+    <error message="Failed to parse the JSON document" type="io.restassured.path.json.exception.JsonPathException"><![CDATA[io.restassured.path.json.exception.JsonPathException: Failed to parse the JSON document
+	at site.nomoreparties.stellarburgers.NewOrderWithAuthTests.getUserOrderWithoutAuth(NewOrderWithAuthTests.java:110)
+Caused by: groovy.json.JsonException: Lexing failed on line: 1, column: 1, while reading '<', no possible valid JSON value or punctuation could be recognized.
+	at site.nomoreparties.stellarburgers.NewOrderWithAuthTests.getUserOrderWithoutAuth(NewOrderWithAuthTests.java:110)
+]]></error>
+    <system-out><![CDATA[Request method:	POST
+Request URI:	https://stellarburgers.nomoreparties.site/api/auth/register
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "email": "LyOUyC@yandex.ru",
+    "password": "fCfWpwOXLu",
+    "name": "mhmBxaZaAh"
+}
+HTTP/1.1 200 OK
+Date: Tue, 23 Aug 2022 13:17:57 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDRkMzg1OTNlYmMyMDAxYjRiNmZkZCIsImlhdCI6MTY2MTI2MDY3NywiZXhwIjoxNjYxMjYxODc3fQ.LSvkpwpu62lA95rVzl7XSagb_Tqps0BdkTRvbPrOt1I
+ETag: W/"16d-0WYKayeU1QWW2NnLafIGtKXghEw"
+CF-Cache-Status: DYNAMIC
+Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=6DaYQpylKb8ePdhvwzp0r0JfmX6QY8Z%2FmEg0R%2F4jXVu8IHyQwuF8mjx1IjeN4FjKbRLMfKNJ09PYEpBlA3Ynet5PZvaRsVwkRLsMUStxpfq7RBbu8LiBomf9tPpGxiSQAGbjMnIIX1NXPTP8elIuzdCaTgc%3D"}],"group":"cf-nel","max_age":604800}
+NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Server: cloudflare
+CF-RAY: 73f421a2c9a79d92-DME
+Content-Encoding: gzip
+alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+
+{
+    "success": true,
+    "user": {
+        "email": "lyouyc@yandex.ru",
+        "name": "mhmBxaZaAh"
+    },
+    "accessToken": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDRkMzg1OTNlYmMyMDAxYjRiNmZkZCIsImlhdCI6MTY2MTI2MDY3NywiZXhwIjoxNjYxMjYxODc3fQ.LSvkpwpu62lA95rVzl7XSagb_Tqps0BdkTRvbPrOt1I",
+    "refreshToken": "fc551aa93ed95565bb465d87ef193e029d5583cb520a852e638bca61eefb3081fd2fe3a4f06d9f48"
+}
+Request method:	POST
+Request URI:	https://stellarburgers.nomoreparties.site/api/auth/login
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "email": "LyOUyC@yandex.ru",
+    "password": "fCfWpwOXLu",
+    "name": "mhmBxaZaAh"
+}
+HTTP/1.1 429 Too Many Requests
+Date: Tue, 23 Aug 2022 13:17:58 GMT
+Content-Type: text/html
+Transfer-Encoding: chunked
+Connection: keep-alive
+CF-Cache-Status: DYNAMIC
+Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=qNL6wTL2TPMq1Fslnr2hOLBee7wTdLw3MHZS8pERANtOUw%2FCmqgjdMWAekn2llveJmo1rm8YU%2Fq0BuDCnBc02H3q18ASqsAvHLDlmzt7YSbWUPXhkSL9%2Ffimwfs9dK7z84ZA6Fy5ynZLw%2FTXb71x7c9Y3YY%3D"}],"group":"cf-nel","max_age":604800}
+NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Server: cloudflare
+CF-RAY: 73f421a57a313a83-DME
+alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+
+<html>
+  <head>
+    <title>429 Too Many Requests</title>
+  </head>
+  <body>
+    <center>
+      <h1>429 Too Many Requests</h1>
+    </center>
+    <hr/>
+    <center>nginx/1.18.0 (Ubuntu)</center>
+  </body>
+</html>
+Request method:	POST
+Request URI:	https://stellarburgers.nomoreparties.site/api/auth/login
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "email": "LyOUyC@yandex.ru",
+    "password": "fCfWpwOXLu",
+    "name": "mhmBxaZaAh"
+}
+HTTP/1.1 200 OK
+Date: Tue, 23 Aug 2022 13:17:58 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+ETag: W/"16d-YEeJJzxTKIJK8g3vURmpo2q7O7U"
+CF-Cache-Status: DYNAMIC
+Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=CVkl6nwwNjWF43qZ24ViBF4XNV%2Fvp9%2BBVTKxpV%2B683x0KrxTk0AL3DpDHf%2FBRxsEkTgPd9U83mBhAEdLLzF%2BrPdJWsVePPt45lDkkQtDNSn0WaAA53Af3Ru6FnNF5h3HIgqRH%2BRrfzJ6Lf54Xj0EM9U4kO4%3D"}],"group":"cf-nel","max_age":604800}
+NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Server: cloudflare
+CF-RAY: 73f421a809ea76a9-DME
+Content-Encoding: gzip
+alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+
+{
+    "success": true,
+    "accessToken": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDRkMzg1OTNlYmMyMDAxYjRiNmZkZCIsImlhdCI6MTY2MTI2MDY3OCwiZXhwIjoxNjYxMjYxODc4fQ.L34tA0JkRXpttWM3C_tmNiW8KadWRXQ_VhjjGu_ea4o",
+    "refreshToken": "21b3a1c5e02a30dec8ee7a9884e6dbb8e5945c5c7e24c61e46980c4b399aeb635099aa4e16f8264d",
+    "user": {
+        "email": "lyouyc@yandex.ru",
+        "name": "mhmBxaZaAh"
+    }
+}
+Request method:	DELETE
+Request URI:	https://stellarburgers.nomoreparties.site/api/auth/user
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDRkMzg1OTNlYmMyMDAxYjRiNmZkZCIsImlhdCI6MTY2MTI2MDY3OCwiZXhwIjoxNjYxMjYxODc4fQ.L34tA0JkRXpttWM3C_tmNiW8KadWRXQ_VhjjGu_ea4o
+				Accept=application/json
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 202 Accepted
+Date: Tue, 23 Aug 2022 13:17:58 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 54
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+ETag: W/"36-hDmZnQ3Ou/ynnqAeC6TYmyseuzY"
+CF-Cache-Status: DYNAMIC
+Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=bJGx6Uvib8mavDIMG6QnI5UMbTkcgYollof49EtR5p%2B5BsO95InOk34PLwS12TP2khJOjA2PAqlwpt%2FdK6GExqYSmZ1I4tVq5oN9oRkF6mm1kDUOGPGYeDag8K2I%2FM%2BeUeRLozIo8lp1OYvIAhe7SDLMzLE%3D"}],"group":"cf-nel","max_age":604800}
+NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Server: cloudflare
+CF-RAY: 73f421a98eeb9d57-DME
+alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+
+{
+    "success": true,
+    "message": "User successfully removed"
+}
+]]></system-out>
+  </testcase>
+  <testcase name="newOrderWithoutIngredients" classname="site.nomoreparties.stellarburgers.NewOrderWithAuthTests" time="1.33"/>
+  <testcase name="wrongHashIngredients" classname="site.nomoreparties.stellarburgers.NewOrderWithAuthTests" time="1.421"/>
+  <testcase name="newOrderTest" classname="site.nomoreparties.stellarburgers.NewOrderWithAuthTests" time="1.94"/>
 </testsuite>
