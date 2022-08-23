@@ -41,7 +41,7 @@ public class LoginUserTest {
         ExistingUser existingUser = new ExistingUser(newUser.getEmail(), newUser.getPassword(), newUser.getName());
         Response responseLogin = client.loginUser(existingUser);
         assertEquals(SC_OK, responseLogin.statusCode());
-        String responseSuccess = responseCreate.body().jsonPath().getString("success");
+        String responseSuccess = responseLogin.body().jsonPath().getString("success");
         MatcherAssert.assertThat(responseSuccess, true);
 
     }

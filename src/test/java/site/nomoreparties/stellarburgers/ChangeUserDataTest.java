@@ -2,6 +2,7 @@ package site.nomoreparties.stellarburgers;
 
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.hamcrest.MatcherAssert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,7 +44,10 @@ public class ChangeUserDataTest {
         ExistingUser newUserNameAndPass = new ExistingUser(newUser.setEmail(RandomStringUtils.randomAlphabetic
                 (10) + "@yandex.ru"), newUser.getPassword(), newUser.setName(RandomStringUtils.randomAlphabetic
                 (10)));
-        client.updateUserInfo(accessToken, newUserNameAndPass);
+        Response patchUpdateMessage = client.updateUserInfo(accessToken, newUserNameAndPass);
+        assertEquals(SC_OK, patchUpdateMessage.statusCode());
+        String responseMessage = patchUpdateMessage.body().jsonPath().getString("success");
+        MatcherAssert.assertThat(responseMessage, true);
     }
 
 }
