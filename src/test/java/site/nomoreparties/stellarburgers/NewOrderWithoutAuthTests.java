@@ -11,36 +11,36 @@ import static org.junit.Assert.assertEquals;
 
 public class NewOrderWithoutAuthTests {
 
-    BurgersApiClient client;
+    BurgersApiOrderClient orderClient;
 
     @Before
     public void setUp() {
-        client = new BurgersApiClient();
+        orderClient = new BurgersApiOrderClient();
 
     }
 
     // Создание заказа с ингредиентами, без авторизации
     @Test
     public void newOrderTest() {
-        Response getOrders = client.getIngredients();
+        Response getOrders = orderClient.getIngredients();
         assertEquals(SC_OK, getOrders.statusCode());
         String getFirstOrderById = getOrders.body().jsonPath().getString("data[0]._id");
         String getSecondOrderById = getOrders.body().jsonPath().getString("data[1]._id");
-        ArrayList<String> ingredients = new ArrayList<>();
-        ingredients.add(getFirstOrderById);
-        ingredients.add(getSecondOrderById);
+        ArrayList<String> ingredientsList = new ArrayList<>();
+        ingredientsList.add(getFirstOrderById);
+        ingredientsList.add(getSecondOrderById);
 
-        NewOrder newOrder = new NewOrder(ingredients);
-        Response newOrderStatus = client.newOrder(newOrder);
+        Order newOrder = new Order(ingredientsList);
+        Response newOrderStatus = orderClient.newOrder(newOrder);
         assertEquals(SC_OK, newOrderStatus.statusCode());
     }
 
     // Создание заказа без ингредиентов, без авторизации
     @Test
     public void newOrderWithoutIngredients() {
-        ArrayList<String> ingredients = new ArrayList<>();
-        NewOrder newOrder = new NewOrder(ingredients);
-        Response newOrderStatus = client.newOrder(newOrder);
+        ArrayList<String> ingredientsList = new ArrayList<>();
+        Order newOrder = new Order(ingredientsList);
+        Response newOrderStatus = orderClient.newOrder(newOrder);
         assertEquals(SC_BAD_REQUEST, newOrderStatus.statusCode());
         String noIngredientsMessage = newOrderStatus.body().jsonPath().getString("message");
         assertEquals(noIngredientsMessage, "Ingredient ids must be provided");
@@ -49,15 +49,15 @@ public class NewOrderWithoutAuthTests {
     // Создание заказа с неверным хэшем ингредиентов, без авторизации
     @Test
     public void wrongHashIngredients() {
-        Response getOrders = client.getIngredients();
+        Response getOrders = orderClient.getIngredients();
         assertEquals(SC_OK, getOrders.statusCode());
         String getFirstOrderById = getOrders.body().jsonPath().getString("data[0]._id");
-        ArrayList<String> ingredients = new ArrayList<>();
-        ingredients.add(getFirstOrderById);
-        ingredients.add(RandomStringUtils.randomAlphabetic(10));
+        ArrayList<String> ingredientsList = new ArrayList<>();
+        ingredientsList.add(getFirstOrderById);
+        ingredientsList.add(RandomStringUtils.randomAlphabetic(10));
 
-        NewOrder newOrder = new NewOrder(ingredients);
-        Response newOrderStatus = client.newOrder(newOrder);
+        Order newOrder = new Order(ingredientsList);
+        Response newOrderStatus = orderClient.newOrder(newOrder);
         assertEquals(SC_INTERNAL_SERVER_ERROR, newOrderStatus.statusCode());
     }
 }

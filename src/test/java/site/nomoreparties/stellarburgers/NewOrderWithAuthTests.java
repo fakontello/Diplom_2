@@ -10,19 +10,21 @@ import java.util.ArrayList;
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.*;
-import static site.nomoreparties.stellarburgers.NewUser.getRandomUser;
+import static site.nomoreparties.stellarburgers.User.getRandomUser;
 
 public class NewOrderWithAuthTests {
 
-    BurgersApiClient client;
-    NewUser newUser;
+    BurgersApiUserClient userClient;
+    BurgersApiOrderClient orderClient;
+    User user;
 
     @Before
     public void setUp() {
-        client = new BurgersApiClient();
-        newUser = getRandomUser();
+        userClient = new BurgersApiUserClient();
+        orderClient = new BurgersApiOrderClient();
+        user = getRandomUser();
 
-        Response responseCreate = client.createUser(newUser);
+        Response responseCreate = userClient.createUser(user);
         assertEquals(SC_OK, responseCreate.statusCode());
         String responseSuccess = responseCreate.body().jsonPath().getString("success");
         assertThat(responseSuccess, true);
@@ -30,11 +32,11 @@ public class NewOrderWithAuthTests {
 
     @After
     public void deleteUser() {
-        ExistingUser existingUser = new ExistingUser(newUser.getEmail(), newUser.getPassword(), newUser.getName());
-        Response responseLogin = client.loginUser(existingUser);
+        User existingUser = new User(user.getEmail(), user.getPassword(), user.getName());
+        Response responseLogin = userClient.loginUser(existingUser);
         String accessToken = responseLogin.body().jsonPath().getString("accessToken");
         assertEquals(SC_OK, responseLogin.statusCode());
-        Response responseDeleteUser = client.deleteUser(accessToken);
+        Response responseDeleteUser = userClient.deleteUser(accessToken);
         assertEquals(SC_ACCEPTED, responseDeleteUser.statusCode());
         String responseMessage = responseDeleteUser.body().jsonPath().getString("message");
         assertEquals(responseMessage, "User successfully removed");
@@ -43,11 +45,11 @@ public class NewOrderWithAuthTests {
     // Создание заказа с ингредиентами, с авторизацией
     @Test
     public void newOrderTest() {
-        ExistingUser existingUser = new ExistingUser(newUser.getEmail(), newUser.getPassword(), newUser.getName());
-        Response responseLogin = client.loginUser(existingUser);
+        User existingUser = new User(user.getEmail(), user.getPassword(), user.getName());
+        Response responseLogin = userClient.loginUser(existingUser);
         String accessToken = responseLogin.body().jsonPath().getString("accessToken");
 
-        Response getOrders = client.getIngredients();
+        Response getOrders = orderClient.getIngredients();
         assertEquals(SC_OK, getOrders.statusCode());
         String getFirstOrderById = getOrders.body().jsonPath().getString("data[0]._id");
         String getSecondOrderById = getOrders.body().jsonPath().getString("data[1]._id");
@@ -55,11 +57,11 @@ public class NewOrderWithAuthTests {
         ingredients.add(getFirstOrderById);
         ingredients.add(getSecondOrderById);
 
-        NewOrder newOrder = new NewOrder(ingredients);
-        Response newOrderStatus = client.newAuthOrder(newOrder, accessToken);
+        Order newOrder = new Order(ingredients);
+        Response newOrderStatus = orderClient.newAuthOrder(newOrder, accessToken);
         assertEquals(SC_OK, newOrderStatus.statusCode());
 
-        Response clientOrder = client.getUserOrders(accessToken);
+        Response clientOrder = orderClient.getUserOrders(accessToken);
         String clientOrderMessage = clientOrder.body().jsonPath().getString("orders");
         assertNotNull(clientOrderMessage);
     }
@@ -67,18 +69,18 @@ public class NewOrderWithAuthTests {
     // Создание заказа без ингредиентов, с авторизацией
     @Test
     public void newOrderWithoutIngredients() {
-        ExistingUser existingUser = new ExistingUser(newUser.getEmail(), newUser.getPassword(), newUser.getName());
-        Response responseLogin = client.loginUser(existingUser);
+        User existingUser = new User(user.getEmail(), user.getPassword(), user.getName());
+        Response responseLogin = userClient.loginUser(existingUser);
         String accessToken = responseLogin.body().jsonPath().getString("accessToken");
 
         ArrayList<String> ingredients = new ArrayList<>();
-        NewOrder newOrder = new NewOrder(ingredients);
-        Response newOrderStatus = client.newAuthOrder(newOrder, accessToken);
+        Order newOrder = new Order(ingredients);
+        Response newOrderStatus = orderClient.newAuthOrder(newOrder, accessToken);
         assertEquals(SC_BAD_REQUEST, newOrderStatus.statusCode());
         String noIngredientsMessage = newOrderStatus.body().jsonPath().getString("message");
         assertEquals(noIngredientsMessage, "Ingredient ids must be provided");
 
-        Response clientOrder = client.getUserOrders(accessToken);
+        Response clientOrder = orderClient.getUserOrders(accessToken);
         String clientOrderMessage = clientOrder.body().jsonPath().getString("orders");
         assertFalse(clientOrderMessage.isEmpty());
     }
@@ -86,30 +88,30 @@ public class NewOrderWithAuthTests {
     // Создание заказа с неверным хэшем ингредиентов, с авторизацией
     @Test
     public void wrongHashIngredients() {
-        ExistingUser existingUser = new ExistingUser(newUser.getEmail(), newUser.getPassword(), newUser.getName());
-        Response responseLogin = client.loginUser(existingUser);
+        User existingUser = new User(user.getEmail(), user.getPassword(), user.getName());
+        Response responseLogin = userClient.loginUser(existingUser);
         String accessToken = responseLogin.body().jsonPath().getString("accessToken");
 
-        Response getOrders = client.getIngredients();
+        Response getOrders = orderClient.getIngredients();
         assertEquals(SC_OK, getOrders.statusCode());
         String getFirstOrderById = getOrders.body().jsonPath().getString("data[0]._id");
         ArrayList<String> ingredients = new ArrayList<>();
         ingredients.add(getFirstOrderById);
         ingredients.add(RandomStringUtils.randomAlphabetic(10));
 
-        NewOrder newOrder = new NewOrder(ingredients);
-        Response newOrderStatus = client.newAuthOrder(newOrder, accessToken);
+        Order newOrder = new Order(ingredients);
+        Response newOrderStatus = orderClient.newAuthOrder(newOrder, accessToken);
         assertEquals(SC_INTERNAL_SERVER_ERROR, newOrderStatus.statusCode());
     }
 
     // Создание и получение заказа пользователя без авторизации
     @Test
     public void getUserOrderWithoutAuth() {
-        ExistingUser existingUser = new ExistingUser(newUser.getEmail(), newUser.getPassword(), newUser.getName());
-        Response responseLogin = client.loginUser(existingUser);
+        User existingUser = new User(user.getEmail(), user.getPassword(), user.getName());
+        Response responseLogin = userClient.loginUser(existingUser);
         String accessToken = responseLogin.body().jsonPath().getString("accessToken");
 
-        Response getOrders = client.getIngredients();
+        Response getOrders = orderClient.getIngredients();
         assertEquals(SC_OK, getOrders.statusCode());
         String getFirstOrderById = getOrders.body().jsonPath().getString("data[0]._id");
         String getSecondOrderById = getOrders.body().jsonPath().getString("data[1]._id");
@@ -117,11 +119,11 @@ public class NewOrderWithAuthTests {
         ingredients.add(getFirstOrderById);
         ingredients.add(getSecondOrderById);
 
-        NewOrder newOrder = new NewOrder(ingredients);
-        Response newOrderStatus = client.newAuthOrder(newOrder, accessToken);
+        Order newOrder = new Order(ingredients);
+        Response newOrderStatus = orderClient.newAuthOrder(newOrder, accessToken);
         assertEquals(SC_OK, newOrderStatus.statusCode());
 
-        Response clientOrder = client.getUserOrders(RandomStringUtils.randomAlphabetic(10));
+        Response clientOrder = orderClient.getUserOrders(RandomStringUtils.randomAlphabetic(10));
         assertEquals(SC_UNAUTHORIZED, clientOrder.statusCode());
         String clientOrderMessage = clientOrder.body().jsonPath().getString("message");
         assertEquals(clientOrderMessage, "You should be authorised");

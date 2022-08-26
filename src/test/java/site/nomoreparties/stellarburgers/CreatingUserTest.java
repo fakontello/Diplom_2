@@ -8,22 +8,22 @@ import org.junit.Test;
 
 import static org.apache.http.HttpStatus.*;
 import static org.junit.Assert.assertEquals;
-import static site.nomoreparties.stellarburgers.NewUser.getRandomUser;
+import static site.nomoreparties.stellarburgers.User.getRandomUser;
 
 public class CreatingUserTest {
 
-    BurgersApiClient client;
-    NewUser newUser;
+    BurgersApiUserClient client;
+    User user;
 
     @Before
     public void setUp() {
-        client = new BurgersApiClient();
-        newUser = getRandomUser();
+        client = new BurgersApiUserClient();
+        user = getRandomUser();
     }
 
     @After
     public void deleteUser() {
-        ExistingUser existingUser = new ExistingUser(newUser.getEmail(), newUser.getPassword(), newUser.getName());
+        User existingUser = new User(user.getEmail(), user.getPassword(), user.getName());
         Response responseLogin = client.loginUser(existingUser);
         String accessToken = responseLogin.body().jsonPath().getString("accessToken");
         assertEquals(SC_OK, responseLogin.statusCode());
@@ -35,8 +35,8 @@ public class CreatingUserTest {
 
     // Создание нового пользователя
     @Test
-    public void creatingNewUser() {
-        Response responseCreate = client.createUser(newUser);
+    public void creatingUser() {
+        Response responseCreate = client.createUser(user);
         assertEquals(SC_OK, responseCreate.statusCode());
         String responseSuccess = responseCreate.body().jsonPath().getString("success");
         MatcherAssert.assertThat(responseSuccess, true);
@@ -44,11 +44,11 @@ public class CreatingUserTest {
 
     // Создание пользователя, который уже зарегистрирован
     @Test
-    public void createExistingUser() {
-        Response responseCreate = client.createUser(newUser);
+    public void createUser() {
+        Response responseCreate = client.createUser(user);
         assertEquals(SC_OK, responseCreate.statusCode());
 
-        Response anotherResponseCreate = client.createUser(newUser);
+        Response anotherResponseCreate = client.createUser(user);
         assertEquals(SC_FORBIDDEN, anotherResponseCreate.statusCode());
 
         String responseMessage = anotherResponseCreate.body().jsonPath().getString("message");

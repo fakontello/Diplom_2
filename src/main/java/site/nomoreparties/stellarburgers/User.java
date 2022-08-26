@@ -2,10 +2,10 @@ package site.nomoreparties.stellarburgers;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
-public class NewUser {
+public class User {
 
     private String email;
-    private String password;
+    private final String password;
     private String name;
 
 
@@ -29,16 +29,16 @@ public class NewUser {
         return this.name = name;
     }
 
-    public NewUser(String email, String password, String name) {
+    public User(String email, String password, String name) {
         this.email = email;
         this.password = password;
         this.name = name;
     }
 
-    public static NewUser getRandomUser() {
+    public static User getRandomUser() {
         String email = RandomStringUtils.randomAlphabetic(6) + "@yandex.ru";
         String password = RandomStringUtils.randomAlphabetic(10);
         String name = RandomStringUtils.randomAlphabetic(10);
-        return new NewUser(email, password, name);
+        return new User(email, password, name);
     }
 }

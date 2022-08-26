@@ -7,31 +7,31 @@ import org.junit.Test;
 
 import static org.apache.http.HttpStatus.*;
 import static org.junit.Assert.assertEquals;
-import static site.nomoreparties.stellarburgers.NewUser.getRandomUser;
+import static site.nomoreparties.stellarburgers.User.getRandomUser;
 
 public class ChangeUserDataNoAuthTest {
 
-    BurgersApiClient client;
-    NewUser newUser;
+    BurgersApiUserClient client;
+    User user;
 
     @Before
     public void setUp() {
-        client = new BurgersApiClient();
-        newUser = getRandomUser();
+        client = new BurgersApiUserClient();
+        user = getRandomUser();
     }
 
     // Изменение имени пользователя и имейла без авторизации
     @Test
     public void changeUserDataWithoutAuth() {
-        Response responseCreate = client.createUser(newUser);
+        Response responseCreate = client.createUser(user);
         assertEquals(SC_OK, responseCreate.statusCode());
-        ExistingUser existingUser = new ExistingUser(newUser.getEmail(), newUser.getPassword(), newUser.getName());
-        ExistingUser newUserNameAndPass = new ExistingUser(newUser.setEmail(RandomStringUtils.randomAlphabetic(10) +
-                "@yandex.ru"), newUser.getPassword(), newUser.setName(RandomStringUtils.randomAlphabetic(10)));
-        Response responeUpdateUserData = client.updateUserInfo(RandomStringUtils.randomAlphabetic(10),
-                newUserNameAndPass);
-        assertEquals(SC_UNAUTHORIZED, responeUpdateUserData.statusCode());
-        String responseMessage = responeUpdateUserData.body().jsonPath().getString("message");
+        User existingUser = new User(user.getEmail(), user.getPassword(), user.getName());
+        User userNameAndPass = new User(user.setEmail(RandomStringUtils.randomAlphabetic(10) +
+                "@yandex.ru"), user.getPassword(), user.setName(RandomStringUtils.randomAlphabetic(10)));
+        Response responseUpdateUserData = client.updateUserInfo(RandomStringUtils.randomAlphabetic(10),
+                userNameAndPass);
+        assertEquals(SC_UNAUTHORIZED, responseUpdateUserData.statusCode());
+        String responseMessage = responseUpdateUserData.body().jsonPath().getString("message");
         assertEquals(responseMessage, "You should be authorised");
 
         Response responseLogin = client.loginUser(existingUser);

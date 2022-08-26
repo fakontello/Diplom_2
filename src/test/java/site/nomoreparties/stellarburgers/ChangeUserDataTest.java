@@ -9,22 +9,22 @@ import org.junit.Test;
 
 import static org.apache.http.HttpStatus.*;
 import static org.junit.Assert.assertEquals;
-import static site.nomoreparties.stellarburgers.NewUser.getRandomUser;
+import static site.nomoreparties.stellarburgers.User.getRandomUser;
 
 public class ChangeUserDataTest {
 
-    BurgersApiClient client;
-    NewUser newUser;
+    BurgersApiUserClient client;
+    User user;
 
     @Before
     public void setUp() {
-        client = new BurgersApiClient();
-        newUser = getRandomUser();
+        client = new BurgersApiUserClient();
+        user = getRandomUser();
     }
 
     @After
     public void deleteUser() {
-        ExistingUser existingUser = new ExistingUser(newUser.getEmail(), newUser.getPassword(), newUser.getName());
+        User existingUser = new User(user.getEmail(), user.getPassword(), user.getName());
         Response responseLogin = client.loginUser(existingUser);
         String accessToken = responseLogin.body().jsonPath().getString("accessToken");
         assertEquals(SC_OK, responseLogin.statusCode());
@@ -37,14 +37,14 @@ public class ChangeUserDataTest {
     // Изменение имени пользователя и имейла с авторизацией
     @Test
     public void changeUserNameAndEmailAuth() {
-        Response responseCreate = client.createUser(newUser);
+        Response responseCreate = client.createUser(user);
         assertEquals(SC_OK, responseCreate.statusCode());
         String accessToken = responseCreate.body().jsonPath().getString("accessToken");
 
-        ExistingUser newUserNameAndPass = new ExistingUser(newUser.setEmail(RandomStringUtils.randomAlphabetic
-                (10) + "@yandex.ru"), newUser.getPassword(), newUser.setName(RandomStringUtils.randomAlphabetic
+        User userNameAndPass = new User(user.setEmail(RandomStringUtils.randomAlphabetic
+                (10) + "@yandex.ru"), user.getPassword(), user.setName(RandomStringUtils.randomAlphabetic
                 (10)));
-        Response patchUpdateMessage = client.updateUserInfo(accessToken, newUserNameAndPass);
+        Response patchUpdateMessage = client.updateUserInfo(accessToken, userNameAndPass);
         assertEquals(SC_OK, patchUpdateMessage.statusCode());
         String responseMessage = patchUpdateMessage.body().jsonPath().getString("success");
         MatcherAssert.assertThat(responseMessage, true);

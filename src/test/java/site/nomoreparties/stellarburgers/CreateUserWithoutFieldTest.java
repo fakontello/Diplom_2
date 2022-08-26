@@ -10,18 +10,18 @@ import static org.junit.Assert.assertEquals;
 
 public class CreateUserWithoutFieldTest {
 
-    BurgersApiClient client;
+    BurgersApiUserClient client;
 
     @Before
     public void setUp() {
-        client = new BurgersApiClient();
+        client = new BurgersApiUserClient();
     }
 
     // Создание пользователя с одним не заполненным обязательным полем
     @Test
     public void attemptToCreateUserWithoutImportantFields() {
 
-        final NewUser newUser = new NewUser(RandomStringUtils.randomAlphabetic(5) + "@" +
+        final User newUser = new User(RandomStringUtils.randomAlphabetic(5) + "@" +
                 RandomStringUtils.randomAlphabetic(5) + ".ru",
                 null,
                 RandomStringUtils.randomAlphabetic(10));
