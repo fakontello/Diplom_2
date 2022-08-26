@@ -35,7 +35,7 @@ public class LoginUserTest {
 
     // Логин нового пользователя
     @Test
-    public void LoginNewUser() {
+    public void loginNewUser() {
         Response responseCreate = client.createUser(newUser);
         assertEquals(SC_OK, responseCreate.statusCode());
         ExistingUser existingUser = new ExistingUser(newUser.getEmail(), newUser.getPassword(), newUser.getName());
@@ -48,7 +48,7 @@ public class LoginUserTest {
 
     // Логин нового пользователя c неверным паролем
     @Test
-    public void LoginNewUserWithWrongPassword() {
+    public void loginNewUserWithWrongPassword() {
         Response responseCreate = client.createUser(newUser);
         assertEquals(SC_OK, responseCreate.statusCode());
         ExistingUser existingUser = new ExistingUser(newUser.getEmail(), RandomStringUtils.randomAlphabetic(10),
