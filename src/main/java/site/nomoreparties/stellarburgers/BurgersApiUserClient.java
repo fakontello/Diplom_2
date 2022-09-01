@@ -42,8 +42,7 @@ public class BurgersApiUserClient {
     public Response deleteUser(String accessToken) {
         return RestAssured.with()
                 .spec(requestSpecification)
-                .headers(
-                        "Authorization", accessToken)
+                .headers("Authorization", accessToken)
                 .when()
                 .delete("/auth/user");
     }
@@ -51,8 +50,7 @@ public class BurgersApiUserClient {
     public Response updateUserInfo(String accessToken, User existingUser) {
         return RestAssured.with()
                 .spec(requestSpecification)
-                .headers(
-                        "Authorization", accessToken)
+                .headers("Authorization", accessToken)
                 .body(existingUser)
                 .when()
                 .patch("/auth/user");

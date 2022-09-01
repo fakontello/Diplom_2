@@ -42,10 +42,7 @@ public class BurgersApiOrderClient {
     public Response newAuthOrder(Order newOrder, String accessToken) {
         return RestAssured.with()
                 .spec(requestSpecification)
-                .headers(
-                        "Authorization", accessToken)
-                .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
+                .headers("Authorization", accessToken)
                 .body(newOrder)
                 .when()
                 .post("/orders");
@@ -54,8 +51,7 @@ public class BurgersApiOrderClient {
     public Response getUserOrders(String accessToken) {
         return RestAssured.with()
                 .spec(requestSpecification)
-                .headers(
-                        "Authorization", accessToken)
+                .headers("Authorization", accessToken)
                 .when()
                 .get("/orders");
     }

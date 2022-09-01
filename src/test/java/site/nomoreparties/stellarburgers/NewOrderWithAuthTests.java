@@ -17,6 +17,7 @@ public class NewOrderWithAuthTests {
     BurgersApiUserClient userClient;
     BurgersApiOrderClient orderClient;
     User user;
+    Order order;
 
     @Before
     public void setUp() {

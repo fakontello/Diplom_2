@@ -41,10 +41,10 @@ public class ChangeUserDataTest {
         assertEquals(SC_OK, responseCreate.statusCode());
         String accessToken = responseCreate.body().jsonPath().getString("accessToken");
 
-        User userNameAndPass = new User(user.setEmail(RandomStringUtils.randomAlphabetic
+        User newUserNameAndPass = new User(user.setEmail(RandomStringUtils.randomAlphabetic
                 (10) + "@yandex.ru"), user.getPassword(), user.setName(RandomStringUtils.randomAlphabetic
                 (10)));
-        Response patchUpdateMessage = client.updateUserInfo(accessToken, userNameAndPass);
+        Response patchUpdateMessage = client.updateUserInfo(accessToken, newUserNameAndPass);
         assertEquals(SC_OK, patchUpdateMessage.statusCode());
         String responseMessage = patchUpdateMessage.body().jsonPath().getString("success");
         MatcherAssert.assertThat(responseMessage, true);
