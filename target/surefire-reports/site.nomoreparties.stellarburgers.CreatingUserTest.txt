@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: site.nomoreparties.stellarburgers.CreatingUserTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.021 s <<< FAILURE! - in site.nomoreparties.stellarburgers.CreatingUserTest
+createExistingUser(site.nomoreparties.stellarburgers.CreatingUserTest)  Time elapsed: 0.464 s  <<< ERROR!
+io.restassured.path.json.exception.JsonPathException: Failed to parse the JSON document
+	at site.nomoreparties.stellarburgers.CreatingUserTest.deleteUser(CreatingUserTest.java:28)
+Caused by: groovy.json.JsonException: Lexing failed on line: 1, column: 1, while reading '<', no possible valid JSON value or punctuation could be recognized.
+	at site.nomoreparties.stellarburgers.CreatingUserTest.deleteUser(CreatingUserTest.java:28)
+
